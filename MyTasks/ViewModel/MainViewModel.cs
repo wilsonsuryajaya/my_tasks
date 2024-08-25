@@ -6,22 +6,34 @@ namespace MyTasks.ViewModel;
 
 public partial class MainViewModel : ObservableObject
 {
+    IConnectivity connectivity;
+
     [ObservableProperty]
     ObservableCollection<string> items;
 
     [ObservableProperty]
     string text;
 
-    public MainViewModel()
+    public MainViewModel(IConnectivity connectivity)
     {
         Items = new ObservableCollection<string>();
+        this.connectivity = connectivity;
     }
 
     [RelayCommand]
-    void Add()
+    async void Add()
     {
         if (string.IsNullOrEmpty(Text))
             return;
+        
+        if (connectivity.NetworkAccess != NetworkAccess.Internet)
+        {
+            await Shell.Current.DisplayAlert( "Uh Oh!", "No internet", "Ok" );
+            return;
+        }
+
+        //Microsoft.Maui.ApplicationModel.Communication.Contact
+
         Items.Add( Text );
 
         // add our item
