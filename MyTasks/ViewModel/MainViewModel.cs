@@ -36,4 +36,15 @@ public partial class MainViewModel : ObservableObject
             Items.Remove( s );
         }
     }
+
+    [RelayCommand]
+    async Task Tap(string s)
+    {
+        await Shell.Current.GoToAsync( $"{nameof( DetailPage )}?id={s}" );
+        // if you need to pass complex objec
+            //new Dictionary<string, object>
+            //{
+            //    {nameof(DetailPage), new object()},
+            //} ); 
+    }
 }
