@@ -13,5 +13,75 @@
             HorizontalOptions="Center" />
 
         <Button Text="Go Back" Command="{Binding GoBackCommand}"/>
+
+        <Grid RowDefinitions="Auto"
+              ColumnDefinitions=".50*, .50*"
+              Padding="10"
+              RowSpacing="10"
+              ColumnSpacing="0">
+
+            <Border Stroke="#C49B33"
+                    StrokeThickness="1"
+                    Background="Black"
+                    Padding="10,10"
+                    HorizontalOptions="End"
+                    Grid.Row="0"
+                    Grid.Column="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="7,0,7,0" />
+                </Border.StrokeShape>
+
+                <Button
+                    CornerRadius="0"
+                    WidthRequest="30"
+                    HeightRequest="30"
+                    BackgroundColor="Black"
+                    BorderColor="Transparent"
+                    TextColor="Black"
+                    Padding="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"> 
+                    <Button.ImageSource>
+                        <FontImageSource
+                            FontFamily="FASolid"
+                            Glyph="{StaticResource user}"
+                            Color="DodgerBlue"
+                            Size="24"/>
+                    </Button.ImageSource>
+                </Button>
+            </Border>
+            <Border Stroke="#C49B33"
+                    StrokeThickness="1"
+                    Background="White"
+                    Padding="10,10"
+                    HorizontalOptions="Start"
+                    Grid.Row="0"
+                    Grid.Column="1">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="0,7,0,7" />
+                </Border.StrokeShape>
+
+                <Button
+                    CornerRadius="0"
+                    WidthRequest="30"
+                    HeightRequest="30"
+                    BackgroundColor="White"
+                    BorderColor="Transparent"
+                    TextColor="Black"
+                    Padding="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                    <Button.ImageSource>
+                        <FontImageSource
+                            FontFamily="FASolid"
+                            Glyph="{StaticResource plus}"
+                            Color="Black"
+                            Size="24"/>
+                    </Button.ImageSource>
+                </Button>
+            </Border>
+
+
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>
